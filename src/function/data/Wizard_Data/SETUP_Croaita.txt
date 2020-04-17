@@ -1,0 +1,8 @@
+Croatia
+foodtruck
+africanCuisine,americanCuisine,arabianCuisine,argentineanCuisine,asianCuisine,austrianCuisine,belgianCuisine,brazilianCuisine,britishCuisine,chineseCuisine,corsicanCuisine,croatianCuisine,czechCuisine,dutchCuisine,frenchCuisine,germanCuisine,greekCuisine,hungarianCuisine,indianCuisine,internationalCuisine,israeliCuisine,italianCuisine,japaneseCuisine,koreanCuisine,lebaneseCuisine,mediterraneanCuisine,mexicanCuisine,mongolianCuisine,moroccanCuisine,orientalCuisine,persianCuisine,polishCuisine,portugueseCuisine,russianCuisine,southAmericanCuisine,spanishCuisine,thaiCuisine,turkishCuisine,ukrainianCuisine,vietnameseCuisine,glutenFree,halal,kosher,lactoseFree,vegan,vegetarian,alcohol,beer,cocktails,craftBeer,refreshments,smoothies,wine,bakery,burger,cakesAndTarts,cheese,chocolateAndJam,delicatessen,donuts,fastFood,fish,freshBread,fruitsAndVegetables,fusionCuisine,gourmetFood,healthyCuisine,homeMadeCuisine,iceCream,kebab,localProducts,pancakes,pasta,pastry,pierogi,pizza,regionalProducts,schnitzel,seafood,sushi,tapas,traditionalCuisine,breakfast,brunch,dinner,lunch,journals,karaoke,liveMusic,newspaper,tobacco
+15257907732,+49,Novalja,Ul. Braće Radić,10000,53291
+delivery,parking,accessible,weddingService,privateEvent,buffet,freeWifi,takeaway,catering,paidWifi,outsideService,heatedTerrace
+amex,bankTransfer,cash,cheque,contactless,debitCard,mastercard,paypal,ticket,visa
+x8EEn,Rogač V,21310,Duće,g.zhou@reply.de,+4915257907732,1234567,Automation,123456
+eatbu.com

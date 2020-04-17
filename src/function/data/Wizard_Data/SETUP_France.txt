@@ -1,0 +1,8 @@
+France
+Butcher
+Argentine
+247000000,+33,Tours,Pl. du Général Leclerc,10000,37000
+Catering
+Cash
+x8EEn,g.zhou@reply.de,10000,Test,For,Automation,Hello,World,190293,247000000,1293029,1029201
+metro.rest

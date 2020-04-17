@@ -1,0 +1,8 @@
+Austria
+Heuriger
+Wine
+463000000,+43,Klagenfurt am Wörthersee,Universitätsstraße,10000,9020
+Valet Parking
+Cheque
+Test,g.zhou@reply.de,Automation,Hello,World,Friend,463000000,Strong,Best,Try
+metro.biz

@@ -1,0 +1,8 @@
+Spain
+Catering
+Tapas
+957000000,+34,Córdoba,Paseo de la Victoria,10000,14004
+Accessible
+Bank transfer
+g.zhou@reply.de,Test,Automation,Hello,957000000,World
+makro.bar

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.dashboard').hide();
+      $('.dashboard').css('height', 2 * $(window).height());
+
+      var num = $('.dashboard').length;
+      var i = 0;
+
+      function showByTurn() {
+        if (i == 0) {
+          $('.dashboard').eq(num - 1).hide();
+        } else {
+          $('.dashboard').eq((i - 1) % num).hide();
+        }
+        $('.dashboard').eq(i).show();
+        i = (i + 1) % num;
+      }
+
+      $(function() {
+        setInterval(showByTurn, 20000);
+      });
+
+    });
+  </script>
+</head>
+
+<body>
+  <iframe src="https://18.194.158.174:3000/public/dashboard/3d9844e4-0e6b-4754-be1d-f879718ddc7c#theme=night&refresh=1200" frameborder="0" allowtransparency width="100%" id="d6" class="dashboard"></iframe>
+
+</body>
+
+</html>

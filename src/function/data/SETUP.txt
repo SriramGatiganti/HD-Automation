@@ -1,0 +1,8 @@
+Germany
+bistro
+traditionalCuisine,lebaneseCuisine,fruitsAndVegetables,homeMadeCuisine,persianCuisine,steakhouse,greekCuisine,asianCuisine,coffeehouse,regionalProducts,italianCuisine,brewery
+1633735500,+49,Krefeld,Oststraße,10000,47798
+weddingService,airConditioning,takeaway,parking,freeWifi,delivery
+contactless,debitCard,mastercard,paypal,ticket,visa
+Test,Automation,testreser0@gmail.com,+491633735500,Hello,World,Friend,Strong,Best
+eatbu.com

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Command Generator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    function set_progress(n) {
+      $("#progress").attr("aria-valuenow", n);
+      $("#progress").attr("style", "width:" + n + "%");
+      $("#progress").text(n + "%");
+    }
+
+    $(document).ready(function() {
+      let exe_os = "";
+      let prefix = "";
+      let tests = "";
+      let env = "";
+      let user = "";
+      let wenv = "";
+      let browser = "";
+      let platform = "";
+      let platformparameter = "";
+      let testingdatasource = "";
+      let otherparameter = "";
+      let result = "";
+
+      //Hide the following steps
+      $('div.row').hide();
+      $('#exec_OS').show();
+
+      //Execution OS
+      $('button[id^="exe_os_"]').click(function(e) {
+        exe_os = $(e.target).text();
+        if (exe_os == "Windows") {
+          prefix = 'node .\\node_modules\\codeceptjs\\bin\\codecept.js run';
+        } else {
+          prefix = 'node ./node_modules/codeceptjs/bin/codecept.js run';
+        }
+        $(e.target).css("background-color", "green");
+        $('button[id^="exe_os_"]').toggleClass('disabled');
+        set_progress(10);
+        $('.tests_group').show();
+      });
+      //Which Test Group
+      $('button[id^="t_"]').click(function(e) {
+        tests = $(e.target).text();
+        $(e.target).css("background-color", "green");
+        $('button[id^="t_"]').toggleClass('disabled');
+        set_progress(20);
+        $(".tests_env").show();
+      });
+      //Local or Sauce Labs?
+      $('button[id^="e_"]').click(function(e) {
+        env = $(e.target).text();
+        if (env == "Local") {
+          env = "loc";
+        } else {
+          env = "sau";
+          user = "gzhou";
+        }
+        $(e.target).css("background-color", "green");
+        $('button[id^="e_"]').toggleClass('disabled');
+        $('.web_env').show();
+        set_progress(30);
+      });
+      //Website Environment?
+      $('button[id^="we_"]').click(function(e) {
+        wenv = $(e.target).text();
+        if (wenv == "Development") {
+          wenv = "dev";
+        } else if (wenv = "Acceptance") {
+          wenv = "acc";
+        } else if (wenv = "Production") {
+          wenv = "prd";
+        };
+        $(e.target).css("background-color", "green");
+        $('button[id^="we_"]').toggleClass('disabled');
+        $(".browser").show();
+        set_progress(40);
+      });
+      //Which Browser
+      $('button[id^="b_"]').click(function(e) {
+        browser = $(e.target).text();
+        $(e.target).css("background-color", "green");
+        $('button[id^="b_"]').toggleClass('disabled');
+        $(".platform").show();
+        //$(".result").show();
+        set_progress(50);
+      });
+      //Which platform
+      $('button[id^="pl_"]').click(function(e) {
+        platform = $(e.target).text();
+        $(e.target).css("background-color", "green");
+        $('button[id^="pl_"]').toggleClass('disabled');
+        $(".platformparameter").show();
+        if (platform == "Laptop/Mac") {
+          $(".laptop").show();
+        } else if (platform == "Android") {
+          $(".android").show();
+        } else if (platform == "iOS") {
+          $(".ios").show();
+        } else {
+          $(".local").show();
+        }
+        set_progress(60);
+      });
+      //Which platform parameters
+      $('button[id^="plp_"]').click(function(e) {
+        platformparameter = $(e.target).text();
+        $(e.target).css("background-color", "green");
+        $('button[id^="plp_"]').toggleClass('disabled');
+        $(".td").show();
+        set_progress(70);
+      });
+      //Which testing data source
+      $('button[id^="td_"]').click(function(e) {
+        testingdatasource = $(e.target).text().split(' ')[0];
+        $(e.target).css("background-color", "green");
+        $('button[id^="td_"]').toggleClass('disabled');
+        $(".op").show();
+        set_progress(70);
+      });
+      //which other parameters
+      $('button[id^="op_"]').click(function(e) {
+        otherparameter = $(e.target).text().split(' ')[0];
+        $(e.target).css("background-color", "green");
+        $('button[id^="op_"]').toggleClass('disabled');
+        $(".result").show();
+        set_progress(80);
+      });
+
+      //Get Result
+      $('#show_result').click(function() {
+        $('#show_result').css("background-color", "green");
+        $('#show_result').toggleClass('disabled');
+        result = prefix + ' --grep "' + tests + '" --steps --debug --profile "' + env + ':' + user + ':' + wenv + ':' + browser + ':' + platformparameter + testingdatasource + ':' + otherparameter + '"';
+        $("#result").text(result);
+        $(".refresh").show();
+        set_progress(100);
+      })
+
+      $("#refresh").click(function() {
+        location.reload(true);
+      });
+    });
+  </script>
+</head>
+
+<body class="text-center">
+  <div class="progress">
+    <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+
+  <h1 class="text-center">Testing Automation Code Generator</h1>
+  <h2>1. Choose Execution OS:</h2>
+
+  <div class="row" id="exec_OS">
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="exe_os_win">Windows</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="exe_os_ubu">Unix</button>
+  </div>
+
+  <div class="row tests_group">
+    <h2 class="tests_group">2. Choose Test Cases Group:</h2>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="t_1">@newHydra_createWebsite</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="t_2">@newHydra_createWebsite|@newHydra_dashboard</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="t_3">@newHydra_createWebsite|@e2ereservation</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="t_4">@reservationRegister</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="t_5">@newHydra_E2E_Flow</button>
+  </div>
+
+  <div class="row tests_env">
+    <h2 class="tests_env">3. Choose If using Sauce Labs:</h2>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="e_1">Local</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="e_2">Sauce Labs</button>
+  </div>
+
+  <div class="row web_env">
+    <h2 class="web_env">4. Choose Test Environment:</h2>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="we_1">Development</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="we_2">Acceptance</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="we_3">Production</button>
+  </div>
+
+  <div class="row browser">
+    <h2 class="browser">5. Choose Your Browser:</h2>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="b_1">chrome</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="b_2">firefox</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="b_3">safari</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="b_4">edge</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="b_5">ie</button>
+  </div>
+
+  <div class="row platform">
+    <h2 class="platform">6. Choose Your Platform:</h2>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="pl_1">Laptop/Mac</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="pl_2">Android</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="pl_3">iOS</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="pl_4">Local</button>
+  </div>
+
+  <div class="row platformparameter">
+    <h2 class="platformparameter">7. Choose Your Platform Parameter:</h2>
+    <div class="row laptop">
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_1">1280x800:Windows 10:1280x800:</button>
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_2">1280x960:macOS 10.13:1280x960:</button>
+    </div>
+    <div class="row android">
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_3">tablet:Android:portrait:</button>
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_4">tablet:Android:landscape:</button>
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_5">phone:Android:landscape:</button>
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_6">phone:Android:portrait:</button>
+    </div>
+    <div class="row ios">
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_7">iPhone X Simulator:iOS:landscape:</button>
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_8">iPhone X Simulator:iOS:portrait:</button>
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_9">iPad Pro (10.5 inch) Simulator:iOS:landscape:</button>
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_10">iPad Pro (10.5 inch) Simulator:iOS:portrait:</button>
+    </div>
+    <div class="row local">
+      <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="plp_11">maximize:::</button>
+    </div>
+  </div>
+
+  <div class="row td">
+    <h2 class="td">8. Choose testing data source:</h2>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="td_1">1 (testing data)</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="td_2">2 (random data)</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="td_3">3 (testing file data)</button>
+  </div>
+
+  <div class="row op">
+    <h2 class="op">9. Choose testing other parameter:</h2>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="op_0">0 (testing)</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="op_1">1 (removing)</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="op_2">2 (sales login and removing)</button>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="op_3">4 (no new browser window)</button>
+  </div>
+
+  <div class="row result">
+    <h2 class="result">Check Result here:</h2>
+    <button type="button" class="btn btn-primary btn-lg col-sm-4 col-xs-4 col-lg-4" id="show_result">Check Result:</button>
+    <br>
+    <br>
+    <div class="well result text-left">
+      <h3 class="text-left" id="result"></h3>
+    </div>
+  </div>
+  <div class="row refresh">
+    <button type="button" class="btn btn-warning btn-lg col-sm-4 col-xs-4 col-lg-4" id="refresh">Refresh</button>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.dashboard').hide();
+      $('.dashboard').css('height', 2 * $(window).height());
+
+      var num = $('.dashboard').length;
+      var i = 0;
+
+      function showByTurn() {
+        if (i == 0) {
+          $('.dashboard').eq(num - 1).hide();
+        } else {
+          $('.dashboard').eq((i - 1) % num).hide();
+        }
+        $('.dashboard').eq(i).show();
+        i = (i + 1) % num;
+      }
+
+      $(function() {
+        setInterval(showByTurn, 20000);
+      });
+
+    });
+    /*
+    <iframe src="https://18.194.158.174:3000/public/dashboard/ff5b6624-4b95-4890-ba64-1d22b070b231#theme=night&refresh=300" frameborder="0" allowtransparency width="100%" id="d1" class="dashboard"></iframe>
+    <iframe src="https://18.194.158.174:3000/public/dashboard/29bb627d-9eb4-47f6-b8f2-cf6cd1396051#theme=night&refresh=1200" frameborder="0" allowtransparency width="100%" id="d2" class="dashboard"></iframe>
+    */
+  </script>
+</head>
+
+<body>
+  <iframe src="https://18.194.158.174:3000/public/dashboard/2edf864a-c904-4d64-b659-b599f149badb#theme=night&refresh=300" frameborder="0" allowtransparency width="100%" id="d3" class="dashboard"></iframe>
+  <iframe src="https://18.194.158.174:3000/public/dashboard/4def0a19-8342-430c-be00-50fcf6ae73b3#theme=night&refresh=300" frameborder="0" allowtransparency width="100%" id="d4" class="dashboard"></iframe>
+  <iframe src="https://18.194.158.174:3000/public/dashboard/e92d3cc6-f0b6-4085-aab9-182747e65416#theme=night&refresh=300" frameborder="0" allowtransparency width="100%" id="d5" class="dashboard"></iframe>
+  <iframe src="https://18.194.158.174:3000/public/dashboard/4f269970-afd2-4dce-ac3b-128c7984cad9#theme=night&refresh=300" frameborder="0" allowtransparency width="100%" id="d6" class="dashboard"></iframe>
+
+</body>
+
+</html>

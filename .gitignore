@@ -1,0 +1,11 @@
+# Ignore Files
+node_modules/
+src/function/public/.env
+src/function/public/config/
+my.properties
+package-lock.json
+address.json
+.vscode/
+src/function/data/financialForceData*
+output/*
+src/.DS_Store

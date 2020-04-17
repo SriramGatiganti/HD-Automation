@@ -1,0 +1,8 @@
+Poland
+Night Club
+Disco
+410000000,+48,Kielce,Wojciecha Szczepaniaka,10000,25-001
+Coterie
+VISA
+g.zhou@reply.de,Test,393201,Automation,42013,45829,410000000
+makro.rest

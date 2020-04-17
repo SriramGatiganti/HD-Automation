@@ -1,0 +1,8 @@
+Belgium
+Bakery
+French
+56000000,+32,Kortrijk,Stationsplein,10000,8500
+Children's Corner
+American Express
+x8EEn,10293,g.zhou@reply.de,Test,1803209,Automation,+3256000000
+metro.bar

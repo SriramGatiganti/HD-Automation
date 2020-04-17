@@ -1,0 +1,19 @@
+let mainPage = require('./main.page');
+let personAccountPage = require('./person.account.page');
+let establishmentPage = require('./establishment.page');
+let assetListPage = require('./asset.list.page');
+let assetPage = require('./asset.page');
+let orderPage = require('./order.page');
+let billingContractPage = require('./billing.contract.page');
+let billingContractLineItemPage = require('./billing.contract.line.item.page');
+let opportunityPage = require('./opportunity.page');
+
+exports.main = mainPage;
+exports.personAccount = personAccountPage;
+exports.establishment = establishmentPage;
+exports.assetList = assetListPage;
+exports.asset = assetPage;
+exports.order = orderPage;
+exports.billingContract = billingContractPage;
+exports.billingContractLineItem = billingContractLineItemPage;
+exports.opportunity = opportunityPage;

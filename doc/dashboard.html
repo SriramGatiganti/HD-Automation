@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      //$('.dashboard').hide();
+      $('.dashboard').css('height', 2 * $(window).height());
+      //$(window.dashboard.document.getElementsByTagName("body")[0]).css('margin', 0);
+      var tests = ['AdminPanel', 'AdminPanel%20RU', 'CustomerWebsite', 'CustomerWebsite%20RU', 'Dashboard', 'Dashboard%20RU', 'Redirect', 'ResDashboard', 'ResDashboard%20RU', 'ResWidget', 'ResWidget%20RU', 'SalesFlow', 'SalesFlow%20RU'];
+      var url = 'https://35.242.238.124:3001/public/dashboard/5b851711-c8f8-4a13-82c4-e3c047519e34?date_filter=past30days~';
+      var num = tests.length;
+      var para = "#refresh=60&fullscreen&night";
+      var i = 0;
+
+      function showByTurn() {
+        var testpara = "&test_name=" + tests[i];
+        var src_url = url + testpara + para;
+        $('.dashboard').attr('src', src_url);
+        i = (i + 1) % num;
+      }
+
+      $(function() {
+        setInterval(showByTurn, 20000);
+      });
+
+    });
+    /*
+    <iframe src="https://18.194.158.174:3000/public/dashboard/ff5b6624-4b95-4890-ba64-1d22b070b231#theme=night&refresh=300" frameborder="0" allowtransparency width="100%" id="d1" class="dashboard"></iframe>
+    <iframe src="https://18.194.158.174:3000/public/dashboard/29bb627d-9eb4-47f6-b8f2-cf6cd1396051#theme=night&refresh=1200" frameborder="0" allowtransparency width="100%" id="d2" class="dashboard"></iframe>
+    */
+  </script>
+</head>
+
+<body>
+  <iframe src="https://35.242.238.124:3001/public/dashboard/5b851711-c8f8-4a13-82c4-e3c047519e34?date_filter=past30days~&test_name=AdminPanel#refresh=60&fullscreen&night" frameborder="0" allowtransparency width="100%" name="dashboard" class="dashboard"></iframe>
+
+</body>
+
+</html>
